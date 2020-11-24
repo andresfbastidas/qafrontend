@@ -1,0 +1,29 @@
+<form class="my-form">  
+    <mat-toolbar>
+       <span>Lista Usuarios</span>
+     </mat-toolbar>
+
+     <table mat-table matSort border="1">
+
+      <tr>
+        <th>Nombre categoria</th>
+      </tr>
+      <tr *ngFor="let categoria of listaCategoria" >
+       
+     
+      <ng-container matColumnDef="Nombre categoria">
+        
+        <td > {{categoria.nombreCategoria}} </td>
+      </ng-container>
+    
+      
+
+      <ng-container >
+      
+        <td>
+             
+          <button (click)="delete(categoria.idCategoria)">Borrar</button>
+        </td>
+      </ng-container>
+    </tr>
+    </table>

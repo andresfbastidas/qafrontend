@@ -1,0 +1,54 @@
+<form class="my-form">  
+    <mat-toolbar>
+       <span>Lista Proyectos</span>
+     </mat-toolbar>
+     <div *ngIf="showMsg">
+        {{msg}}
+     </div>
+     <table mat-table matSort border="1">
+
+      <tr>
+        <th>ID Proyecto</th>
+        <th>Nombre Proyecto</th>
+        <th>Descripcion proyecto</th>
+        <th>Fecha Creación</th>
+        <th>Estado Proyecto</th>
+      </tr>
+      <tr *ngFor="let proyecto of listaProyecto" >
+       
+        <ng-container matColumnDef="ID proyecto">
+        
+            <td > {{proyecto.idProyecto}} </td>
+          </ng-container>
+     
+      <ng-container matColumnDef="Nombre proyecto">
+        
+        <td > {{proyecto.nombreProyecto}} </td>
+      </ng-container>
+    
+    
+      <ng-container matColumnDef="Descripcion Proyecto">
+        
+        <td > {{proyecto.descripcionProyecto}} </td>
+      </ng-container>
+    
+     
+      <ng-container matColumnDef="Estado Proyecto">
+       
+        <td > {{proyecto.estado}} </td>
+      </ng-container>
+    
+      
+      <ng-container matColumnDef="Fecha Creación">
+      
+        <td > {{proyecto.fechaCreacion}} </td>
+      </ng-container>
+      <ng-container >
+      
+        <td>
+             
+          <button [routerLink]="[ '/editar-proyecto', proyecto.idProyecto]">Editar</button>
+        </td>
+      </ng-container>
+    </tr>
+    </table>

@@ -1,0 +1,57 @@
+<div *ngIf="showMsg">
+    {{msg}}
+  </div>
+
+
+        <form class="my-form">  
+          <mat-toolbar>
+             <span>Lista Usuarios</span>
+           </mat-toolbar>
+   
+           <table mat-table matSort border="1">
+
+            <tr>
+              <th>CORREO ELECTRONICO</th>
+              <th>Estado</th>
+              <th>NOMBRE</th>
+              <th>TIPO DE USUARIO</th>
+            </tr>
+            <tr *ngFor="let user of listaUser" >
+             
+           
+            <ng-container matColumnDef="position">
+              
+              <td > {{user.emailUsuario}} </td>
+            </ng-container>
+          
+          
+            <ng-container matColumnDef="CORREO ELECTRONICO">
+              
+              <td > {{user.estado}} </td>
+            </ng-container>
+          
+           
+            <ng-container matColumnDef="ACTIVO">
+             
+              <td > {{user.nombreUsuario}} </td>
+            </ng-container>
+          
+            
+            <ng-container matColumnDef="TIPO DE USUARIO">
+            
+              <td > {{user.idTipoUsuario.nombreUsuario}} </td>
+            </ng-container>
+            <ng-container >
+            
+              <td>
+                   
+                <button (click)="delete(user.emailUsuario)">Borrar</button>
+              </td>
+            </ng-container>
+          </tr>
+          </table>
+
+        
+          
+  
+

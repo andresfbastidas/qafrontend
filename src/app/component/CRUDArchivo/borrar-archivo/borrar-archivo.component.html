@@ -1,0 +1,46 @@
+<form class="my-form">  
+    <mat-toolbar>
+       <span>Lista documentos</span>
+     </mat-toolbar>
+
+     <div *ngIf = "listaArchivo?.length== 0" class="alert alert-info" role="alert">
+      No hay documentos creados
+     
+    </div>
+
+     <table mat-table matSort border="1" *ngIf = "listaArchivo?.length>0">
+      
+      <tr>
+        <th>Nombre archivo</th>
+        <th>Url</th>
+        <th>Nombre proyecto</th>
+      </tr>
+      <tr *ngFor="let archivo of listaArchivo" >
+       
+     
+      <ng-container matColumnDef="Nombre Archivo">
+        
+        <td > {{archivo.nombreArchivo}} </td>
+      </ng-container>
+    
+    
+      <ng-container matColumnDef="CORREO ELECTRONICO">
+        
+        <td > {{archivo.urlArchivo}} </td>
+      </ng-container>
+    
+    
+      
+      <ng-container matColumnDef="Proyeto asignado">
+      
+        <td > {{archivo.idProyecto.nombreProyecto}} </td>
+      </ng-container>
+      <ng-container >
+      
+        <td>
+             
+          <button (click)="delete(archivo.idArchivo)">Borrar</button>
+        </td>
+      </ng-container>
+    </tr>
+    </table>

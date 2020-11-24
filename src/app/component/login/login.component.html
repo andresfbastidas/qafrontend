@@ -1,0 +1,56 @@
+
+<div id="login" fxLayout="column">
+<mat-card class="my-card" >
+
+
+    <div id="login-form-wrapper" fxLayout="column" fxLayoutAlign="center center">
+
+        <div id="login-form" [@animate]="{value:'*',params:{duration:'300ms',y:'100px'}}">
+
+            <div class="logo">
+                <img src="assets/images/logos/green.png">
+            </div>
+
+            <div class="title">Iniciar sesión</div>
+
+             <form name="loginForm" [formGroup]="loginForm" novalidate>
+
+                 <mat-form-field appearance="outline">
+                    <mat-label>Correo electronico</mat-label>
+                    <input matInput  [(ngModel)]="email" formControlName="email">
+                    <mat-icon matSuffix class="secondary-text">mail</mat-icon>
+                    <mat-error *ngIf="loginForm.get('email').hasError('required')">
+                        Correo electronico requerido
+                    </mat-error>
+                    <mat-error
+                        *ngIf="!loginForm.get('email').hasError('required') &&
+                                loginForm.get('email').hasError('email')">
+                        Por favor ingrese un correo electronico valido
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Contraseña</mat-label>
+                    <input matInput [(ngModel)]="password" formControlName="password" placeholder="Contraseña" name="Contraseña" type="password" required >
+                    <mat-icon matSuffix class="secondary-text">vpn_key</mat-icon>
+                    <mat-error>
+                        Contraseña requerida
+                    </mat-error>
+                </mat-form-field>
+
+                <button mat-raised-button (click)="ingresar()" color="accent" class="boton" aria-label="Ingresar" [disabled] = "!loginForm.valid">
+                    Ingresar
+                </button>
+
+            </form>
+
+         
+
+        </div>
+
+    </div>
+
+
+
+</mat-card>
+</div>
